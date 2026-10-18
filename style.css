@@ -6,9 +6,13 @@
 #container div {
   display: flex;
   flex-direction: row;
+  align-self: center;
 }
 
 #container div div{
   border: 1px solid black;
   margin: 1px;
+  width: 32px;
+  height: 32px;
+  background-color: black;
 }
