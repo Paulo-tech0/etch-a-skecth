@@ -1,1 +1,14 @@
+#container {
+  display: flex;
+  flex-direction: column;
+}
 
+#container div {
+  display: flex;
+  flex-direction: row;
+}
+
+#container div div{
+  border: 1px solid black;
+  margin: 1px;
+}
