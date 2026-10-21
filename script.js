@@ -1,4 +1,5 @@
 const CONTAINER = document.querySelector("#container");
+const BUTTON = document.querySelector("#popup");
 function displaySquareDivs(side){
   let mydivs = [];
   for (let i=0;i<side;i++){
@@ -11,4 +12,12 @@ function displaySquareDivs(side){
   }
 }
 displaySquareDivs(16);
-CONTAINER.addEventListener("mouseover",e=>e.target.style.backgroundColor="blue")
+CONTAINER.addEventListener("mouseover",e=>
+{
+  e.target.style.backgroundColor="blue";
+})
+BUTTON.addEventListener("click", e=>{
+  let sides = Number(prompt("Choose the sides of the grid: "));
+  if (sides>100) {sides = 100;}
+  displaySquareDivs(sides);
+})
