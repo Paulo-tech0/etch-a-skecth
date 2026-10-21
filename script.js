@@ -18,6 +18,10 @@ CONTAINER.addEventListener("mouseover",e=>
 })
 BUTTON.addEventListener("click", e=>{
   let sides = Number(prompt("Choose the sides of the grid: "));
+  let divs = document.querySelectorAll("#container div");
   if (sides>100) {sides = 100;}
+  for (let div of divs){
+    div.remove();
+  }
   displaySquareDivs(sides);
 })
