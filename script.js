@@ -12,9 +12,13 @@ function displaySquareDivs(side){
   }
 }
 displaySquareDivs(16);
-CONTAINER.addEventListener("mouseover",e=>
-{
-  e.target.style.backgroundColor="blue";
+CONTAINER.addEventListener("mouseover",e=>{
+  //the query selector ">" makes sure that the color change is not applied to the container or to the rows div containers
+  for (let div of document.querySelectorAll("#container div > div")){
+    if (e.target === div){
+      e.target.style.backgroundColor = "blue";
+    }
+  }
 })
 BUTTON.addEventListener("click", e=>{
   let sides = Number(prompt("Choose the sides of the grid: "));
