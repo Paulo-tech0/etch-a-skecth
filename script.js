@@ -11,3 +11,4 @@ function displaySquareDivs(side){
   }
 }
 displaySquareDivs(16);
+CONTAINER.addEventListener("mouseover",e=>e.target.style.backgroundColor="blue")
