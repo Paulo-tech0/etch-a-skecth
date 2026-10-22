@@ -1,8 +1,10 @@
 #container {
   display: flex;
   flex-direction: column;
-  width: 960px;
-  height: 960px;
+  width: 600px;
+  height: 600px;
+  justify-self: center;
+  align-self: center;
 }
 
 #container div {
@@ -12,10 +14,16 @@
   flex: 1 1 auto;
 }
 
-#container div div{
-  border: 1px solid black;
-  margin: 1px;
+#container div > div {
   background-color: black;
   box-sizing: border-box;
   flex: 1 1 auto; 
+}
+
+#popup {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  margin: 8px;
+  border-radius: 4px;
 }
