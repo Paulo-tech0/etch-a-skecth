@@ -7,17 +7,17 @@
   align-self: center;
 }
 
-#container div {
+#container > div {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
   flex: 1 1 auto;
 }
 
-#container div > div {
+.square {
   background-color: black;
   box-sizing: border-box;
-  flex: 1 1 auto; 
+  flex: 1 1 auto;
 }
 
 #popup {

@@ -1,36 +1,36 @@
 const container = document.querySelector("#container");
 const button = document.querySelector("#popup");
+const STANDARD_SIDES = 16;
 function displaySquareDivs(side){
-  let mydivs = [];
   for (let i=0;i<side;i++){
-    mydivs[i] = document.createElement("div");
+    let div = document.createElement("div");
     for (let j=0;j<side;j++){
-      let mynewdiv = document.createElement("div");
-      mydivs[i].appendChild(mynewdiv);
+      let childdiv = document.createElement("div");
+      childdiv.classList.add("square");
+      div.appendChild(childdiv);
     }
-    container.appendChild(mydivs[i]);
+    container.appendChild(div);
   }
 }
-displaySquareDivs(16);
+displaySquareDivs(STANDARD_SIDES);
 container.addEventListener("mouseover",e=>{
-  if (e.target.parentNode.parentNode === container){
+  if (e.target.classList.contains("square")){
     let random_rgb;
     random_rgb = `rgb(${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)}, ${Math.floor(Math.random()*256)})`;
     e.target.style.backgroundColor = random_rgb;
-    if (!(e.target.style.opacity)){
-      e.target.style.opacity = 1;
+    if (!e.target.style.opacity){e.target.style.opacity = 1}
+    else if (e.target.style.opacity <= 0){
+      return;
     }
     e.target.style.opacity -= 0.1;
-    if (e.target.style.opacity <= 0){
-      e.target.style.opacity = 0;
-    }
   }
 })
 button.addEventListener("click", e=>{
   let sides = Number(prompt("Choose the sides of the grid (1-100): "));
-  if (!sides) {sides = 16}
-  else if (sides>100) {sides = 16;}
-  else if (sides<1) {sides = 16;}
+  if (!Number.isInteger(sides)){sides = STANDARD_SIDES}
+  else if (!sides) {sides = STANDARD_SIDES}
+  else if (sides>100) {sides = STANDARD_SIDES;}
+  else if (sides<1) {sides = STANDARD_SIDES;}
   container.replaceChildren();
   displaySquareDivs(sides);
 })
